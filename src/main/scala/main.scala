@@ -128,6 +128,54 @@ object main extends App{
   println(iteration3("Fizz","Buzz",15))
   */
   /*
+  def recursion1(word:String, num:Int){
+    if(num>0){
+      println(word)
+      recursion1(word, num-1)
+    }
+  }
+  recursion1("Hi",4)
+  */
+  /*
+  def recursion2(word:String, num:Int){
+    val lenWord = word.length
+    val line =word*4
+    if(num>0){
+      println(line)
+      recursion2(word,num-1)
+    }
+  }
+  recursion2("H",7)
+  */
+
+  /* //I haven't quite got this exercise to work properly yet. In its current state it outputs ",Buzz".
+  var output=""
+  def recursion3(f:String, b:String, num:Int):String={
+    if (num > 1) {
+      if (num % 3 == 0) {
+        output = "," + f + output
+      }
+      if (num % 5 == 0) {
+        output = "," + b + output
+      }
+      if (num % 3 == 0 && num % 5 == 0) {
+        output = "," + f + b + output
+      }
+      if (num % 3 != 0 && num % 5 != 0) {
+        output = "," + num
+      }
+    }
+    if(num==1){
+      output=1+","+output
+    }
+    else{println(output);sys.exit}
+
+    recursion3(f, b, num - 1)
+  }
+  recursion3("Fizz","Buzz",10)
+  */
+
+  /*
   def patternMatching1A(x:Int, y:Int, bool:Boolean):Int={
     var result=0
     bool match{
@@ -139,5 +187,29 @@ object main extends App{
 
   println(patternMatching1A(2,5,true))
   */
+  /*
+  def patternMatching1B(x:Int, y:Int, bool:Boolean):Int={
+    var result=0
+    bool match{
+      case true => result = x+y
+      case false => result = x*y
+    }
+    if(x==0){
+      result=y
+    }
+    if(y==0){
+      result=x
+    }
+    return(result)
+  }
+
+  println(patternMatching1B(2,5,false))
+  */
+  /*
+  def patternMatching2(x:String): Unit ={
+
+  }
+  */
+
 
 }
