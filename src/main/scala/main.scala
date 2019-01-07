@@ -127,6 +127,17 @@ object main extends App{
 
   println(iteration3("Fizz","Buzz",15))
   */
+  /*
+  def patternMatching1A(x:Int, y:Int, bool:Boolean):Int={
+    var result=0
+    bool match{
+      case true => result = x+y
+      case false => result = x*y
+    }
+    return(result)
+  }
 
+  println(patternMatching1A(2,5,true))
+  */
 
 }
