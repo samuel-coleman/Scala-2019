@@ -1,11 +1,11 @@
 object main extends App{
 
   def String1(x:String, y:Int):String={
-    val letters = x.substring(x.length-y)
-    letters
+    x.substring(x.length-y)
   }
 
   //println(String1("Human",5))
+
 
   def String2(a:String, b:String, x:Char, y:Char):String={
     var word = a+b
@@ -23,16 +23,14 @@ object main extends App{
     word2
   }
 
- // println(String2("Hal","loahaha",'a','e'))
+  //println(String2("Hal","loahaha",'a','e'))
 
 
   def Operators(x:Int, y:Int):Int={
-    var sum = x+y
-    sum
+    x+y
   }
 
   //println(Operators(2,5))
-
 
   def Conditionals(x:Int, y:Int, bool:Boolean):Int={
     var result=0
@@ -74,14 +72,14 @@ object main extends App{
     }
   }
 
- //iteration("Hi",5)
+  //iteration("Hi",5)
 
 
   def iteration2(word:String, num:Int){
     val lenWord = word.length
     var line =""
     lenWord match{
-      case 1 => line=word*num
+      case 1 => line=(word*num)
       case _ => line=word
     }
     for(i <- 1 to num){
@@ -121,7 +119,7 @@ object main extends App{
     output
   }
 
- // println(iteration3("Fizz","Buzz",15))
+  //println(iteration3("Fizz","Buzz",15))
 
 
   def recursion1(word:String, num:Int){
@@ -134,16 +132,16 @@ object main extends App{
 
 
   def recursion2(word:String, num:Int){
+    val line =word*4
     if(num>0){
-      println(word*4)
+      println(line)
       recursion2(word,num-1)
     }
   }
   //recursion2("H",7)
 
 
-  //I haven't quite got this exercise to work properly yet. In its current state it outputs ",Buzz".
-
+  /* //I haven't quite got this exercise to work properly yet. In its current state it outputs ",Buzz".
   var output=""
   def recursion3(f:String, b:String, num:Int):String={
     if (num > 1) {
@@ -167,8 +165,8 @@ object main extends App{
 
     recursion3(f, b, num - 1)
   }
-  //recursion3("Fizz","Buzz",10)
-
+  recursion3("Fizz","Buzz",10)
+  */
 
 
   def patternMatching1A(x:Int, y:Int, bool:Boolean):Int={
@@ -199,7 +197,6 @@ object main extends App{
   }
 
   //println(patternMatching1B(2,5,false))
-
 
   def patternMatching2(x:Int, y:Int){
     var num1 = x
