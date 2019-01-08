@@ -148,7 +148,8 @@ object main extends App{
   recursion2("H",7)
   */
 
-  /* //I haven't quite got this exercise to work properly yet. In its current state it outputs ",Buzz".
+  //I haven't quite got this exercise to work properly yet. In its current state it outputs ",Buzz".
+  /*
   var output=""
   def recursion3(f:String, b:String, num:Int):String={
     if (num > 1) {
@@ -205,11 +206,14 @@ object main extends App{
 
   println(patternMatching1B(2,5,false))
   */
-  /*
-  def patternMatching2(x:String): Unit ={
 
+  def patternMatching2(x:Int, y:Int){
+    var num1 = x
+    var num2 = y
+    println(num2+","+num1)
   }
-  */
+patternMatching2(1,2)
+
 
 
 }
