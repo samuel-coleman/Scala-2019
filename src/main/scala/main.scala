@@ -132,7 +132,6 @@ object main extends App{
 
 
   def recursion2(word:String, num:Int){
-    val lenWord = word.length
     val line =word*4
     if(num>0){
       println(line)
