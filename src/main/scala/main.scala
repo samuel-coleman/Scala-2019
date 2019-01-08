@@ -1,7 +1,7 @@
 object main extends App{
 
   def String1(x:String, y:Int):String={
-    var letters = x.substring(x.length-y)
+    val letters = x.substring(x.length-y)
     letters
   }
 
@@ -250,11 +250,11 @@ object main extends App{
 
 
   def second(){
-    val myArray = Array.fill(100)(0)
-    for(i <- 0 until 100) {
+    val myArray = Array.fill(1000000)(0)
+    for(i <- 0 until 1000000) {
       myArray(i) = i + 1
     }
-    myArray(12)=10
+    myArray(9999)=100000
    var inc = 0
     while( inc < myArray.length){
       if(myArray(inc) != (inc+1)){
@@ -264,6 +264,21 @@ object main extends App{
       inc+=1
     }
   }
-  second()
+  //second()
+
+  //Unfinished Functional 1
+  /*def Functional1() {
+    var timeZones = java.util.TimeZone.getAvailableIDs
+    var i=1
+    while(i < timeZones.length){
+     timeZones(i)=timeZones(i).split("/").filter()
+
+      i+=1
+    }
+    println(timeZones.deep.mkString("\n"))
+
+  }
+  Functional1()
+  */
 
 }
