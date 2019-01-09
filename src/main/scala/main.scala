@@ -79,7 +79,7 @@ object main extends App{
     val lenWord = word.length
     var line =""
     lenWord match{
-      case 1 => line=(word*num)
+      case 1 => line=word*num
       case _ => line=word
     }
     for(i <- 1 to num){
@@ -197,18 +197,6 @@ object main extends App{
   }
 
   //println(patternMatching1B(2,5,false))
-
-  def patternMatching2(x:Int, y:Int){
-    var num1 = x
-    var num2 = y
-    println(num2+","+num1)
-  }
-  //patternMatching2(1,2)
-
-
-
-  //Tuesday email Exercises
-
   def bottlesObeer1(x:Int){
     if(x>1) {
       println(x + " bottles of beer on the wall, " + x + " bottles of beer, you take one down, pass it around, " + (x - 1) + " bottles of beer on the wall.")
@@ -246,6 +234,10 @@ object main extends App{
 
 
 
+  def patternMatching2(x:Int, y:Int){
+    var num1 = x
+    var num2 = y
+    println(num2+","+num1)
   def second(){
     val myArray = Array.fill(1000000)(0)
     for(i <- 0 until 1000000) {
@@ -261,6 +253,8 @@ object main extends App{
       inc+=1
     }
   }
+  //patternMatching2(1,2)
+
   //second()
 
   //Unfinished Functional 1
