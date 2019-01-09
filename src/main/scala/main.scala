@@ -8,7 +8,7 @@ object main extends App{
 
 
   def String2(a:String, b:String, x:Char, y:Char):String={
-    var word = (a+b)
+    var word = a+b
     var word2 = ""
     var i =0
     while(i < word.length){
@@ -79,7 +79,7 @@ object main extends App{
     val lenWord = word.length
     var line =""
     lenWord match{
-      case 1 => line=(word*num)
+      case 1 => line=word*num
       case _ => line=word
     }
     for(i <- 1 to num){
@@ -197,14 +197,79 @@ object main extends App{
   }
 
   //println(patternMatching1B(2,5,false))
+  def bottlesObeer1(x:Int){
+    if(x>1) {
+      println(x + " bottles of beer on the wall, " + x + " bottles of beer, you take one down, pass it around, " + (x - 1) + " bottles of beer on the wall.")
+      bottlesObeer1(x - 1)
+    }
+    if(x==1){
+      println(x+" bottle of beer on the wall, "+x+" bottle of beer, you take it down, pass it around, no more bottles of beer on the wall.")
+      bottlesObeer1(x-1)
+     }
+    if(x==0){
+      println("No more bottles of beer on the wall, no more bottles of beer, Go to the store, buy some more, 99 bottles of beer on the wall.")
+      sys.exit
+    }
+
+  }
+  //bottlesObeer1(99)
+
+
+  def bottlesObeer2(x:Int){
+    val bot = "bottles of beer"
+    var y = x-1
+    if(x>0){
+      println(s"$x $bot on the wall, $x $bot, you take one down, pass it around, $y $bot on the wall.")
+      bottlesObeer2(x-1)
+    }
+    if(x==1){
+      println(s"$x 4bot on the wall, $x $bot, you take it down, pass it around, no more $bot on the wall.")
+      bottlesObeer2(x-1)
+    }
+    if(x==0){
+      println(s"No more $bot on the wall, No more $bot, Go to the store, buy some more, 99 $bot on the wall.")
+    }
+  }
+  //bottlesObeer2(99)
+
+
 
   def patternMatching2(x:Int, y:Int){
     var num1 = x
     var num2 = y
     println(num2+","+num1)
+  def second(){
+    val myArray = Array.fill(1000000)(0)
+    for(i <- 0 until 1000000) {
+      myArray(i) = i + 1
+    }
+    myArray(9999)=100000
+   var inc = 0
+    while( inc < myArray.length){
+      if(myArray(inc) != (inc+1)){
+        println(myArray(inc)+" is repeated.")
+        sys.exit
+      }
+      inc+=1
+    }
   }
   //patternMatching2(1,2)
 
+  //second()
 
+  //Unfinished Functional 1
+  /*def Functional1() {
+    var timeZones = java.util.TimeZone.getAvailableIDs
+    var i=1
+    while(i < timeZones.length){
+     timeZones(i)=timeZones(i).split("/").filter()
+
+      i+=1
+    }
+    println(timeZones.deep.mkString("\n"))
+
+  }
+  Functional1()
+  */
 
 }
