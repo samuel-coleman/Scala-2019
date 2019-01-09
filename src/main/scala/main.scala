@@ -141,32 +141,32 @@ object main extends App{
   //recursion2("H",7)
 
 
-  /* //I haven't quite got this exercise to work properly yet. In its current state it outputs ",Buzz".
+   //I haven't quite got this exercise to work properly yet. In its current state it outputs ",Buzz".
   var output=""
   def recursion3(f:String, b:String, num:Int):String={
     if (num > 1) {
       if (num % 3 == 0) {
-        output = "," + f + output
+        output = f + output
       }
       if (num % 5 == 0) {
-        output = "," + b + output
+        output = b + output
       }
       if (num % 3 == 0 && num % 5 == 0) {
-        output = "," + f + b + output
+        output = f + b + output
       }
       if (num % 3 != 0 && num % 5 != 0) {
-        output = "," + num
+        output = ""+num
       }
     }
     if(num==1){
-      output=1+","+output
+      output=1+output
     }
     else{println(output);sys.exit}
 
     recursion3(f, b, num - 1)
   }
-  recursion3("Fizz","Buzz",10)
-  */
+  //recursion3("Fizz","Buzz",10)
+
 
 
   def patternMatching1A(x:Int, y:Int, bool:Boolean):Int={
@@ -265,17 +265,87 @@ object main extends App{
 
   //Unfinished Functional 1
   /*def Functional1() {
-    var timeZones = java.util.TimeZone.getAvailableIDs
+    val timeZones = java.util.TimeZone.getAvailableIDs
     var i=1
     while(i < timeZones.length){
-     timeZones(i)=timeZones(i).split("/").filter()
+     timeZones(i)=timeZones(i).split("/")
 
       i+=1
     }
     println(timeZones.deep.mkString("\n"))
 
   }
-  Functional1()
+  //Functional1()
   */
+
+  //Wednesday Start
+
+  //Intermediate
+
+  def blackjack(play1:Int, play2:Int):Int ={
+    var winner = 0
+    if(play1>play2 || (play2>21 && play1<=21)){
+      winner = play1
+    }
+    if(play2>play1 || (play1>21 && play2<=21)){
+      winner = play2
+    }
+    winner
+  }
+  //println(blackjack(22,18))
+
+  def uniqueSum(x:Int, y:Int, z:Int):Int={
+    var number=0
+    number
+  }
+
+  // Email Exercises
+
+  //Broken Keyboard
+
+  def randomLetters(): String ={
+    val word = scala.util.Random.alphanumeric.filter(_.isLetter).take(4).mkString.toLowerCase
+    word
+  }
+
+  def findingWord(letters:String):String={
+    import scala.io.Source
+    val nWords = Source.fromFile("C:\\Users\\Admin\\Documents\\Coleman Scala\\nWords.txt").getLines.toList.filter(x => x.contains(letters(0)) || x.contains(letters(1)) || x.contains(letters(2)) || x.contains(letters(3)) )
+    var correct:String = ""
+    for(i <- 0 to (nWords.length-1)){
+      if(isLetter(letters,nWords(i))==true){
+        correct = correct + nWords(i)
+      }
+    }
+    var correctList = correct.split(" ")
+    var longest:String = correctList(0)
+    for(i<- 0 to (correct.length-1)){
+      if(longest.length < correctList(i).length ){
+        longest = correctList(i)
+      }
+
+    }
+    longest
+  }
+
+  def isLetter(letters:String, word:String): Boolean = {
+    var result = false
+    for(i <- 0 to (word.length-1)) {
+      if (word(i) == letters(0) || word(i) == letters(1) || word(i) == letters(2) || word(i) == letters(3)) {
+        result = true
+      }
+      else {
+        result = false
+      }
+    }
+    result
+  }
+
+
+  def brokenKeyboard(inNum:Int){
+    for(i <- 1 to inNum){
+      println(s"")
+    }
+  }
 
 }
