@@ -234,10 +234,11 @@ object main extends App{
 
 
 
-  def patternMatching2(x:Int, y:Int){
+  def patternMatching2(x:Int, y:Int) {
     var num1 = x
     var num2 = y
-    println(num2+","+num1)
+    println(num2 + "," + num1)
+  }
   def second(){
     val myArray = Array.fill(1000000)(0)
     for(i <- 0 until 1000000) {
@@ -258,11 +259,11 @@ object main extends App{
   //second()
 
   //Unfinished Functional 1
-  /*def Functional1() {
+  def Functional1() {
     val timeZones = java.util.TimeZone.getAvailableIDs
     var i=1
     while(i < timeZones.length){
-     timeZones(i)=timeZones(i).split("/")
+     timeZones(i).split("/")
 
       i+=1
     }
@@ -270,7 +271,7 @@ object main extends App{
 
   }
   //Functional1()
-  */
+
 
   //Wednesday Start
 
@@ -295,51 +296,77 @@ object main extends App{
 
   // Email Exercises
 
-  //Broken Keyboard
+  // BASIC Broken Keyboard
 
-  def randomLetters(): String ={
-    val word = scala.util.Random.alphanumeric.filter(_.isLetter).take(4).mkString.toLowerCase
-    word
+  def numSelection(): Int ={
+    println("How many sets of letters do you want to test?:")
+    val num = scala.io.StdIn.readInt()
+    num
   }
 
-  def findingWord(letters:String):String={
+
+  def findingLongest(letters:String) {
     import scala.io.Source
-    val nWords = Source.fromFile("C:\\Users\\Admin\\Documents\\Coleman Scala\\nWords.txt").getLines.toList.filter(x => x.contains(letters(0)) || x.contains(letters(1)) || x.contains(letters(2)) || x.contains(letters(3)) )
-    var correct:String = ""
-    for(i <- 0 to (nWords.length-1)){
-      if(isLetter(letters,nWords(i))==true){
-        correct = correct + nWords(i)
+    val Words = Source.fromFile("C:\\Users\\Admin\\Documents\\Coleman Scala\\nWords.txt").getLines.toList.filter(x => x.startsWith(letters(0).toString) || x.startsWith(letters(1).toString) || x.startsWith(letters(2).toString) || x.startsWith(letters(3).toString))
+    var correct = ""
+    var longest = ""
+    for (i <- 0 until Words.length) {
+      var isWord = 0
+      for (k <- 0 until Words(i).length) {
+        if (isWord >= 0) {
+          if (Words(i)(k) == letters(0) || Words(i)(k) == letters(1) || Words(i)(k) == letters(2) || Words(i)(k) == letters(3)) {
+            isWord += 1
+          }
+          else {
+            isWord = -100
+          }
+        }
       }
+      if (isWord == Words(i).length) {
+        println(Words(i))
+        correct = Words(i)
+      }
+      if (correct.length > longest.length) longest = correct
     }
-    var correctList = correct.split(" ")
-    var longest:String = correctList(0)
-    for(i<- 0 to (correct.length-1)){
-      if(longest.length < correctList(i).length ){
-        longest = correctList(i)
-      }
 
-    }
-    longest
+
+    println(s"For $letters, The longest word is: $longest")
+  }
+  //  println("Please input the 4 letters you can use:")
+  //  var letters:String = scala.io.StdIn.readLine()
+  // findingLongest(letters)
+
+  //Credit Card INCOMPLETE
+
+  def checkDigitAdd():String={
+    println("Type your desired ID number:")
+    val number:String = scala.io.StdIn.readLine()
+   number
   }
 
-  def isLetter(letters:String, word:String): Boolean = {
-    var result = false
-    for(i <- 0 to (word.length-1)) {
-      if (word(i) == letters(0) || word(i) == letters(1) || word(i) == letters(2) || word(i) == letters(3)) {
-        result = true
+  def checkId() {
+    val idString = checkDigitAdd()
+    var idInd = idString.length-2
+    var idSelect = 1
+    var sum = idString.substring(idInd+1,idInd+2).toInt
+    idInd-=1
+    while (idInd >= 0) {
+      if(idSelect%2 ==0) {
+        sum += idString.substring(idInd, idInd+1).toInt
       }
-      else {
-        result = false
+      if(idSelect%2 !=0){
+        sum += (idString.substring(idInd,idInd+1).toInt/10)+((idString.substring(idInd,idInd+1).toInt*2)%10)
       }
+      idInd-=1
+      idSelect+=1
     }
-    result
+    println(sum)
+    if(sum%10 == 0)println("The ID number IS Valid")
+    if(sum%10 != 0){println("The ID number is NOT Valid")}
   }
+  checkId()
 
 
-  def brokenKeyboard(inNum:Int){
-    for(i <- 1 to inNum){
-      println(s"")
-    }
-  }
+
 
 }
