@@ -289,10 +289,6 @@ object main extends App{
   }
   //println(blackjack(22,18))
 
-  def uniqueSum(x:Int, y:Int, z:Int):Int={
-    var number=0
-    number
-  }
 
   // Email Exercises
 
@@ -356,7 +352,8 @@ object main extends App{
         println(sum)
       }
       if(idSelect%2 !=0){
-        sum += (idString.substring(idInd,idInd+1).toInt/10)+((idString.substring(idInd,idInd+1).toInt*2)%10)
+        sum += ((idString.substring(idInd,idInd+1).toInt*2)%10)
+        if(idString.substring(idInd,idInd+1).toInt>=5)sum+=1
         println(sum)
       }
       idInd-=1
@@ -366,9 +363,36 @@ object main extends App{
     if(sum%10 == 0)println("The ID number IS Valid")
     if(sum%10 != 0){println("The ID number is NOT Valid")}
   }
-  checkId()
+  //checkId()
 
 
+
+  //Wednesday
+
+  def uniqueSum(x:Int, y:Int, z:Int):Int={
+    var sum=0
+    if(x==y)sum=z
+    if(x==z)sum=y
+    if(y==z)sum=x
+    if(x!=y && x!=z && y!=z)sum=x+y+z
+    if(x==y && x==z)sum=0
+    sum
+  }
+ // println("Select your 3 numbers")
+  //println(uniqueSum(scala.io.StdIn.readInt, scala.io.StdIn.readInt,scala.io.StdIn.readInt))
+
+  def tooHot(temp:Int, isSummer:Boolean):Boolean={
+    var isHot = false
+    if(isSummer){
+      if(temp>=60 && temp<=100)isHot=true
+    }
+    else{
+      if(temp>=60 && temp<=90)isHot=true
+    }
+    isHot
+  }
+  //println("Input the temperature and whether it is summer(true or false):")
+  //println(tooHot(scala.io.StdIn.readInt(),scala.io.StdIn.readBoolean()))
 
 
 }
