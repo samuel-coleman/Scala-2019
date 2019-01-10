@@ -1,61 +1,75 @@
-object Countdown {
+object Countdown extends App {
+  import scala.io.Source
 
   def vowel(): String = {
-    val r = scala.util.Random
-    val letterID = r.nextInt(4)
+    val letterID = scala.util.Random.nextInt(4)
     letterID match {
-      case 0 => "A"
-      case 1 => "E"
-      case 2 => "I"
-      case 3 => "O"
-      case 4 => "U"
+      case 0 => "a"
+      case 1 => "e"
+      case 2 => "i"
+      case 3 => "o"
+      case 4 => "u"
     }
   }
 
   def consonant():String= {
-    val r = scala.util.Random
-    val letterID = r.nextInt(20)
+    val letterID = scala.util.Random.nextInt(20)
     letterID match {
-      case 0 => "B"
-      case 1 => "C"
-      case 2 => "D"
-      case 3 => "F"
-      case 4 => "G"
-      case 5 => "H"
-      case 6 => "J"
-      case 7 => "K"
-      case 8 => "L"
-      case 9 => "M"
-      case 10 => "N"
-      case 11 => "P"
-      case 12 => "Q"
-      case 13 => "R"
-      case 14 => "S"
-      case 15 => "T"
-      case 16 => "V"
-      case 17 => "W"
-      case 18 => "X"
-      case 19 => "Y"
-      case 20 => "Z"
+      case 0 => "b"
+      case 1 => "c"
+      case 2 => "d"
+      case 3 => "f"
+      case 4 => "g"
+      case 5 => "h"
+      case 6 => "j"
+      case 7 => "k"
+      case 8 => "l"
+      case 9 => "m"
+      case 10 => "n"
+      case 11 => "p"
+      case 12 => "q"
+      case 13 => "r"
+      case 14 => "s"
+      case 15 => "t"
+      case 16 => "v"
+      case 17 => "w"
+      case 18 => "x"
+      case 19 => "y"
+      case 20 => "z"
     }
   }
 
-    def selection():String={
-        println("Vowel or Consonant? (v/c)")
-        val choice = scala.io.StdIn.readLine()
-        choice match{
-          case "v" | "V" => vowel()
-          case "c" | "C" => consonant()
-        }
+  def selection():Array[Char]={
+    var word=""
+    var i=0
+    while(i < 9) {
+     println("Vowel or Consonant? (v/c)")
+     val choice = scala.io.StdIn.readLine()
+     choice match {
+       case "v" | "V" => word+=vowel(); i+=1
+       case "c" | "C" => word+=consonant(); i+=1
+       case _ => println("Please use the correct selection key")
+     }
+      println(word)
     }
+    println(word.toArray.mkString(""))
+    word.toArray.distinct
+  }
 
-  println(12)
+  def longest(letters:Array[Char]): Unit ={
 
+   val wordList = Source.fromFile("C:\\Users\\Admin\\Documents\\Coleman Scala\\nWords.txt").getLines.toList
 
+    ('a' to 'z').toArray
+      .diff(letters)
+      .foreach(
+        key => wordList.filter(!_.contains(key))
+      )
 
+   println(wordList.sortBy(_.length).last)
+  }
 
-
-
+  longest(selection())
 
 
 

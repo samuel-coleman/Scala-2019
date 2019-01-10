@@ -378,8 +378,12 @@ object main extends App{
     if(x==y && x==z)sum=0
     sum
   }
- // println("Select your 3 numbers")
-  //println(uniqueSum(scala.io.StdIn.readInt, scala.io.StdIn.readInt,scala.io.StdIn.readInt))
+  def start(): Unit ={
+    println("Select your 3 numbers")
+    uniqueSum(scala.io.StdIn.readInt, scala.io.StdIn.readInt,scala.io.StdIn.readInt)
+  }
+
+  //println(start())
 
   def tooHot(temp:Int, isSummer:Boolean):Boolean={
     var isHot = false
@@ -391,8 +395,15 @@ object main extends App{
     }
     isHot
   }
-  //println("Input the temperature and whether it is summer(true or false):")
-  //println(tooHot(scala.io.StdIn.readInt(),scala.io.StdIn.readBoolean()))
+
+  def hotStart(): Unit ={
+    println("Input the temperature and whether it is summer(true or false):")
+    tooHot(scala.io.StdIn.readInt(),scala.io.StdIn.readBoolean())
+  }
+
+  //println(hotStart())
+
+
 
 
 }
