@@ -349,13 +349,15 @@ object main extends App{
     var idInd = idString.length-2
     var idSelect = 1
     var sum = idString.substring(idInd+1,idInd+2).toInt
-    idInd-=1
+    println(sum)
     while (idInd >= 0) {
       if(idSelect%2 ==0) {
         sum += idString.substring(idInd, idInd+1).toInt
+        println(sum)
       }
       if(idSelect%2 !=0){
         sum += (idString.substring(idInd,idInd+1).toInt/10)+((idString.substring(idInd,idInd+1).toInt*2)%10)
+        println(sum)
       }
       idInd-=1
       idSelect+=1
