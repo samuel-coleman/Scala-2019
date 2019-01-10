@@ -141,32 +141,32 @@ object main extends App{
   //recursion2("H",7)
 
 
-  /* //I haven't quite got this exercise to work properly yet. In its current state it outputs ",Buzz".
+   //I haven't quite got this exercise to work properly yet. In its current state it outputs ",Buzz".
   var output=""
   def recursion3(f:String, b:String, num:Int):String={
     if (num > 1) {
       if (num % 3 == 0) {
-        output = "," + f + output
+        output = f + output
       }
       if (num % 5 == 0) {
-        output = "," + b + output
+        output = b + output
       }
       if (num % 3 == 0 && num % 5 == 0) {
-        output = "," + f + b + output
+        output = f + b + output
       }
       if (num % 3 != 0 && num % 5 != 0) {
-        output = "," + num
+        output = ""+num
       }
     }
     if(num==1){
-      output=1+","+output
+      output=1+output
     }
     else{println(output);sys.exit}
 
     recursion3(f, b, num - 1)
   }
-  recursion3("Fizz","Buzz",10)
-  */
+  //recursion3("Fizz","Buzz",10)
+
 
 
   def patternMatching1A(x:Int, y:Int, bool:Boolean):Int={
@@ -234,10 +234,11 @@ object main extends App{
 
 
 
-  def patternMatching2(x:Int, y:Int){
+  def patternMatching2(x:Int, y:Int) {
     var num1 = x
     var num2 = y
-    println(num2+","+num1)
+    println(num2 + "," + num1)
+  }
   def second(){
     val myArray = Array.fill(1000000)(0)
     for(i <- 0 until 1000000) {
@@ -258,18 +259,114 @@ object main extends App{
   //second()
 
   //Unfinished Functional 1
-  /*def Functional1() {
-    var timeZones = java.util.TimeZone.getAvailableIDs
+  def Functional1() {
+    val timeZones = java.util.TimeZone.getAvailableIDs
     var i=1
     while(i < timeZones.length){
-     timeZones(i)=timeZones(i).split("/").filter()
+     timeZones(i).split("/")
 
       i+=1
     }
     println(timeZones.deep.mkString("\n"))
 
   }
-  Functional1()
-  */
+  //Functional1()
+
+
+  //Wednesday Start
+
+  //Intermediate
+
+  def blackjack(play1:Int, play2:Int):Int ={
+    var winner = 0
+    if(play1>play2 || (play2>21 && play1<=21)){
+      winner = play1
+    }
+    if(play2>play1 || (play1>21 && play2<=21)){
+      winner = play2
+    }
+    winner
+  }
+  //println(blackjack(22,18))
+
+  def uniqueSum(x:Int, y:Int, z:Int):Int={
+    var number=0
+    number
+  }
+
+  // Email Exercises
+
+  // BASIC Broken Keyboard
+
+  def numSelection(): Int ={
+    println("How many sets of letters do you want to test?:")
+    val num = scala.io.StdIn.readInt()
+    num
+  }
+
+
+  def findingLongest(letters:String) {
+    import scala.io.Source
+    val Words = Source.fromFile("C:\\Users\\Admin\\Documents\\Coleman Scala\\nWords.txt").getLines.toList.filter(x => x.startsWith(letters(0).toString) || x.startsWith(letters(1).toString) || x.startsWith(letters(2).toString) || x.startsWith(letters(3).toString))
+    var correct = ""
+    var longest = ""
+    for (i <- 0 until Words.length) {
+      var isWord = 0
+      for (k <- 0 until Words(i).length) {
+        if (isWord >= 0) {
+          if (Words(i)(k) == letters(0) || Words(i)(k) == letters(1) || Words(i)(k) == letters(2) || Words(i)(k) == letters(3)) {
+            isWord += 1
+          }
+          else {
+            isWord = -100
+          }
+        }
+      }
+      if (isWord == Words(i).length) {
+        println(Words(i))
+        correct = Words(i)
+      }
+      if (correct.length > longest.length) longest = correct
+    }
+
+
+    println(s"For $letters, The longest word is: $longest")
+  }
+  //  println("Please input the 4 letters you can use:")
+  //  var letters:String = scala.io.StdIn.readLine()
+  // findingLongest(letters)
+
+  //Credit Card INCOMPLETE
+
+  def checkDigitAdd():String={
+    println("Type your desired ID number:")
+    val number:String = scala.io.StdIn.readLine()
+   number
+  }
+
+  def checkId() {
+    val idString = checkDigitAdd()
+    var idInd = idString.length-2
+    var idSelect = 1
+    var sum = idString.substring(idInd+1,idInd+2).toInt
+    idInd-=1
+    while (idInd >= 0) {
+      if(idSelect%2 ==0) {
+        sum += idString.substring(idInd, idInd+1).toInt
+      }
+      if(idSelect%2 !=0){
+        sum += (idString.substring(idInd,idInd+1).toInt/10)+((idString.substring(idInd,idInd+1).toInt*2)%10)
+      }
+      idInd-=1
+      idSelect+=1
+    }
+    println(sum)
+    if(sum%10 == 0)println("The ID number IS Valid")
+    if(sum%10 != 0){println("The ID number is NOT Valid")}
+  }
+  checkId()
+
+
+
 
 }
