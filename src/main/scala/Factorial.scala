@@ -15,5 +15,4 @@ object Factorial extends App{
   }
 
   factorial(150,0)
-
 }
