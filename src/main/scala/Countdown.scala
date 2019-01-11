@@ -14,8 +14,8 @@ object Countdown extends App {
 
   def consonant():String= {
     val letterID = scala.util.Random.nextInt(20)
-    val arrayOfNumbers =('a' to 'z').toArray.diff(Array('a','e','o','i','u'))
-    arrayOfNumbers(letterID).toString
+    val arrayOfLetters =('a' to 'z').toArray.diff(Array('a','e','o','i','u'))
+    arrayOfLetters(letterID).toString
     }
 
   def selection():Array[Char]={
