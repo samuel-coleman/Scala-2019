@@ -1,3 +1,5 @@
+import scala.util.Random
+
 object Countdown extends App {
   import scala.io.Source
 
@@ -48,7 +50,7 @@ object Countdown extends App {
    println(wordList.sortBy(_.length).last)
   }
 
-  longest(selection())
+ // longest(selection())
 
 
 
